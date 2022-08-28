@@ -22,7 +22,6 @@ axios.get('https://coderbyte.com/api/challenges/json/age-counting')
         fs.readFile("resultado.html",(err,file)=>{
             res.writeHead(200,{'Content-Type':'text/html'});
             res.write(file);
-            
             return res.end()
         });
     }).listen(8080)
