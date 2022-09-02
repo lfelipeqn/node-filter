@@ -10,6 +10,7 @@ IAfpK
 
 Example Output
 7caa78c7180ea52e5193d2b4c22e5e8a9e03b486
+0b8781a3b9e2e8af92c419b860e09700d380baf9
 */
 
 const axios = require("axios").default
@@ -50,8 +51,7 @@ let readFile = (name)=>{
 getData('https://coderbyte.com/api/challenges/json/age-counting')
 .then(results =>{
     let ages = results.data.replace(/(\s|\")/gi,'').split(',');
-    ages = ages.reverse()
-    for (let i=0; i < ages.length; i+=2) {
+    for (let i=1; i < ages.length; i+=2) {
         let result = ages[i].split('=')
         if(Number(result[1])===filter) content.push(ages[i+1].split('=')[1])
     }
