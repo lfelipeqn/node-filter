@@ -21,6 +21,7 @@ https.get('https://coderbyte.com/api/challenges/json/age-counting', (resp) => {
   
   let data = '';
   let content=[];
+  let filter='32';
   resp.on('data', (d) => {
     data += [d]
   })
@@ -34,6 +35,7 @@ https.get('https://coderbyte.com/api/challenges/json/age-counting', (resp) => {
             content.push(ages[i-1].split('=')[1])
         }
     }
+    console.log(content.length)
     content = content.join('\n');
     fs.writeFileSync('output.txt',content);
     const dataFile = fs.readFileSync('output.txt','utf8');
